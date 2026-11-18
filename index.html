@@ -1,885 +1,160 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f5f0e6">
-  <meta name="description" content="M.&.CO — Independent digital studio creating considered websites for ambitious businesses.">
-  <title>M.&.CO — Digital Studio</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --cream: #f5f0e6;
-      --paper: #fffdf8;
-      --sand: #a65332;
-      --terracotta: #793b27;
-      --olive: #596044;
-      --ink: #191914;
-      --muted: #777267;
-      --line: #ded7ca;
-      --serif: "Playfair Display", Georgia, serif;
-      --sans: "DM Sans", Arial, sans-serif;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: var(--sans);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(1160px, 88%);
-      margin: auto;
-    }
-
-    .announcement {
-      background: var(--olive);
-      color: white;
-      text-align: center;
-      padding: 9px 15px;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    header {
-      padding: 25px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      font-family: var(--serif);
-      font-size: 27px;
-      letter-spacing: -1.5px;
-      font-weight: 600;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      font-size: 12px;
-    }
-
-    .nav-links a:hover { color: var(--sand); }
-
-    .nav-contact {
-      border: 1px solid var(--ink);
-      padding: 11px 19px;
-      transition: .25s;
-    }
-
-    .nav-contact:hover {
-      background: var(--ink);
-      color: white;
-    }
-
-    .hero {
-      padding: 110px 0 100px;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--sand);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 10px;
-      font-weight: 700;
-      margin-bottom: 25px;
-    }
-
-    h1 {
-      font-family: var(--serif);
-      font-size: clamp(52px, 7vw, 88px);
-      line-height: 1.04;
-      font-weight: 400;
-      letter-spacing: -3px;
-      max-width: 680px;
-    }
-
-    h1 em {
-      color: var(--sand);
-      font-weight: 400;
-    }
-
-    .hero-copy {
-      max-width: 440px;
-      color: var(--muted);
-      margin-top: 27px;
-      font-size: 14px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 13px;
-      flex-wrap: wrap;
-      margin-top: 34px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 15px 23px;
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: .25s;
-    }
-
-    .button-dark {
-      background: var(--ink);
-      color: white;
-    }
-
-    .button-dark:hover { background: var(--sand); }
-
-    .button-outline {
-      border: 1px solid var(--line);
-    }
-
-    .button-outline:hover { border-color: var(--sand); }
-
-    .hero-art {
-      min-height: 420px;
-      background: var(--sand);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 35px;
-    }
-
-    .hero-art::before {
-      content: "";
-      position: absolute;
-      width: 290px;
-      height: 390px;
-      border: 1px solid rgba(255,255,255,.45);
-      border-radius: 150px 150px 0 0;
-      transform: rotate(16deg);
-    }
-
-    .hero-art::after {
-      content: "";
-      position: absolute;
-      width: 190px;
-      height: 260px;
-      border: 1px solid rgba(255,255,255,.5);
-      border-radius: 150px 150px 0 0;
-      transform: rotate(-16deg);
-    }
-
-    .art-word {
-      position: relative;
-      z-index: 1;
-      color: var(--cream);
-      font-family: var(--serif);
-      font-size: clamp(55px, 8vw, 90px);
-      line-height: 1;
-      text-align: center;
-    }
-
-    .art-word small {
-      display: block;
-      font-family: var(--sans);
-      font-size: 9px;
-      letter-spacing: 4px;
-      margin-top: 18px;
-    }
-
-    .intro {
-      background: var(--paper);
-      padding: 90px 0;
-      text-align: center;
-    }
-
-    .intro h2 {
-      font-family: var(--serif);
-      font-size: clamp(32px, 5vw, 53px);
-      line-height: 1.2;
-      font-weight: 400;
-      max-width: 780px;
-      margin: auto;
-    }
-
-    .intro p {
-      max-width: 570px;
-      margin: 24px auto 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    section { padding: 95px 0; }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 30px;
-      margin-bottom: 45px;
-    }
-
-    .section-heading h2 {
-      font-family: var(--serif);
-      font-size: clamp(38px, 5vw, 57px);
-      font-weight: 400;
-      line-height: 1.1;
-    }
-
-    .section-heading p {
-      max-width: 330px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-    }
-
-    .service {
-      padding: 35px 27px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      min-height: 245px;
-    }
-
-    .service-number {
-      color: var(--sand);
-      font-size: 11px;
-      letter-spacing: 2px;
-    }
-
-    .service h3 {
-      font-family: var(--serif);
-      font-size: 25px;
-      font-weight: 400;
-      margin: 32px 0 12px;
-    }
-
-    .service p {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .work {
-      background: var(--paper);
-    }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .project { margin-bottom: 15px; }
-
-    .project-art {
-      min-height: 290px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 30px;
-      overflow: hidden;
-    }
-
-    .project-art span {
-      font-family: var(--serif);
-      font-size: clamp(35px, 5vw, 62px);
-      line-height: 1.1;
-    }
-
-    .project-art.one { background: #d8c6ad; color: #513c2d; }
-    .project-art.two { background: #68705a; color: #f5f0e6; }
-    .project-art.three { background: #b76c4d; color: #fff4e8; }
-    .project-art.four { background: #ded8cc; color: #27251f; }
-
-    .project-info {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 15px 0;
-    }
-
-    .project-info h3 {
-      font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 400;
-    }
-
-    .project-info p {
-      color: var(--muted);
-      font-size: 10px;
-      text-align: right;
-    }
-
-    .concept-note {
-      color: var(--muted);
-      font-size: 11px;
-      margin-top: 20px;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-    }
-
-    .process-item {
-      border-top: 1px solid var(--sand);
-      padding-top: 20px;
-    }
-
-    .process-item span {
-      color: var(--sand);
-      font-size: 11px;
-      letter-spacing: 2px;
-    }
-
-    .process-item h3 {
-      font-family: var(--serif);
-      font-size: 23px;
-      font-weight: 400;
-      margin: 20px 0 10px;
-    }
-
-    .process-item p {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .pricing {
-      background: var(--olive);
-      color: var(--cream);
-    }
-
-    .pricing .eyebrow { color: #e5b99e; }
-
-    .pricing .section-heading p { color: #e0dfd3; }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .price-card {
-      background: var(--cream);
-      color: var(--ink);
-      padding: 32px 25px;
-      display: flex;
-      flex-direction: column;
-      min-height: 390px;
-    }
-
-    .price-card.featured {
-      background: #e8d7c5;
-      outline: 1px solid #e8d7c5;
-    }
-
-    .price-card h3 {
-      font-family: var(--serif);
-      font-size: 26px;
-      font-weight: 400;
-    }
-
-    .price {
-      font-family: var(--serif);
-      font-size: 43px;
-      margin: 18px 0 5px;
-    }
-
-    .price-note {
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .price-card ul {
-      list-style: none;
-      margin: 25px 0;
-      font-size: 12px;
-      flex: 1;
-    }
-
-    .price-card li {
-      padding: 9px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .price-card .button { text-align: center; }
-
-    .care {
-      margin-top: 22px;
-      padding: 25px;
-      border: 1px solid rgba(255,255,255,.4);
-      display: flex;
-      justify-content: space-between;
-      gap: 25px;
-      align-items: center;
-    }
-
-    .care h3 {
-      font-family: var(--serif);
-      font-size: 24px;
-      font-weight: 400;
-    }
-
-    .care p {
-      color: #e0dfd3;
-      font-size: 12px;
-      margin-top: 5px;
-    }
-
-    .care strong {
-      font-family: var(--serif);
-      font-size: 30px;
-      white-space: nowrap;
-    }
-
-    .faq-list {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    details {
-      border-bottom: 1px solid var(--line);
-      padding: 22px 0;
-    }
-
-    summary {
-      cursor: pointer;
-      font-family: var(--serif);
-      font-size: 21px;
-    }
-
-    details p {
-      color: var(--muted);
-      font-size: 13px;
-      padding-top: 15px;
-      max-width: 650px;
-    }
-
-    .contact {
-      background: #e8d7c5;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-family: var(--serif);
-      font-size: clamp(43px, 7vw, 78px);
-      line-height: 1.08;
-      font-weight: 400;
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .contact p {
-      color: #6d6258;
-      max-width: 470px;
-      margin: 22px auto 30px;
-      font-size: 13px;
-    }
-
-    footer {
-      background: var(--ink);
-      color: var(--cream);
-      padding: 40px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-    }
-
-    footer .logo { font-size: 25px; }
-
-    footer p, footer a {
-      color: #c4bdb1;
-      font-size: 11px;
-    }
-
-    footer a:hover { color: white; }
-
-    @media (max-width: 760px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 75px 0;
-        gap: 40px;
-      }
-
-      .hero-art { min-height: 310px; }
-
-      .nav-links { gap: 13px; font-size: 10px; }
-      .nav-contact { padding: 9px 12px; }
-
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .process-grid { grid-template-columns: 1fr 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .price-card { min-height: auto; }
-      .work-grid { gap: 14px; }
-      .project-art { min-height: 220px; }
-
-      .section-heading {
-        display: block;
-      }
-
-      .section-heading p { margin-top: 15px; }
-
-      .care { align-items: flex-start; flex-direction: column; }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .container { width: 90%; }
-
-      .nav-links a:not(.nav-contact) { display: none; }
-
-      .services-grid,
-      .work-grid,
-      .process-grid { grid-template-columns: 1fr; }
-
-      .project-art { min-height: 260px; }
-
-      h1 { letter-spacing: -2px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="M.&.CO is an independent digital studio creating considered, modern websites for ambitious businesses.">
+<meta name="theme-color" content="#f5f0e6">
+<title>M.&amp;.CO — Independent Digital Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f5f0e6;--paper:#fffdf8;--sand:#a65332;--terra:#793b27;--olive:#596044;--ink:#191914;--muted:#777267;--line:#ded7ca;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.65}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.eyebrow{font-size:.7rem;letter-spacing:.19em;text-transform:uppercase;color:var(--olive);font-weight:700}.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.045em}.announcement{background:var(--olive);color:#fffdf8;text-align:center;padding:8px 16px;font-size:.69rem;letter-spacing:.15em;text-transform:uppercase}.header{position:sticky;top:0;z-index:20;background:#f5f0e6ed;backdrop-filter:blur(14px);border-bottom:1px solid #ded7ca99}.nav{height:78px;display:flex;align-items:center;justify-content:space-between}.logo{font:600 1.55rem var(--serif);letter-spacing:-.07em}.logo span{color:var(--sand)}.navlinks{display:flex;gap:32px;align-items:center;font-size:.78rem}.navlinks a:not(.btn):hover{color:var(--sand)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--ink);color:var(--paper);padding:13px 20px;border:1px solid var(--ink);font-size:.75rem;letter-spacing:.04em;transition:transform .25s,background .25s,color .25s}.btn:hover{transform:translateY(-3px);background:var(--sand);border-color:var(--sand)}.btn.light{background:transparent;color:var(--ink)}.btn.light:hover{color:white}.menu{display:none;background:none;border:0;font-size:1.5rem}
+.hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:92px 0 100px}.hero h1{font:500 clamp(3.2rem,7vw,6.5rem)/.99 var(--serif);letter-spacing:-.065em;margin:22px 0}.hero h1 em{color:var(--sand);font-weight:500}.hero p{max-width:520px;color:var(--muted);font-size:1rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.hero-art{height:470px;position:relative;display:grid;place-items:center}.arch{position:absolute;width:min(80%,390px);height:420px;border-radius:220px 220px 8px 8px;background:var(--sand);overflow:hidden;box-shadow:0 25px 70px #793b2722;animation:float 7s ease-in-out infinite}.arch:before{content:"";position:absolute;inset:28px;border:1px solid #fff8;border-radius:190px 190px 4px 4px}.orb{position:absolute;width:190px;height:190px;border-radius:50%;background:var(--olive);right:3%;top:9%;opacity:.95}.orb:after{content:"";position:absolute;inset:20px;border:1px solid #ffffff88;border-radius:50%}.art-caption{position:absolute;bottom:5px;right:0;font:italic 1.1rem var(--serif);color:var(--muted)}.art-stamp{position:absolute;left:0;bottom:60px;background:var(--paper);padding:18px 22px;box-shadow:0 12px 40px #19191412;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}.intro{background:var(--paper);padding:105px 0}.intro-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:60px}.intro h2,.section-head h2{font:500 clamp(2.5rem,5vw,4.7rem)/1.08 var(--serif);letter-spacing:-.05em;margin:0}.intro p{max-width:560px;color:var(--muted);margin-top:24px}
+section.content{padding:105px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}.section-head p{max-width:340px;color:var(--muted);margin:0}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.service{min-height:225px;padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s,transform .3s}.service:hover{background:var(--paper);transform:translateY(-4px)}.service .num{font-size:.67rem;color:var(--sand);letter-spacing:.15em}.service h3{font:500 1.65rem var(--serif);margin:26px 0 8px}.service p{font-size:.86rem;color:var(--muted);margin:0}.work{background:var(--paper)}.concept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.concept{min-height:330px;position:relative;overflow:hidden;padding:22px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s;cursor:pointer;border:0;text-align:left;color:var(--ink);font-family:inherit;width:100%}.concept:hover,.concept:focus-visible{transform:translateY(-7px);outline:2px solid var(--sand);outline-offset:3px}.concept .explore{z-index:1;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border-top:1px solid #19191455;padding-top:12px;margin-top:18px}.concept:nth-child(1){background:#d7c7b0}.concept:nth-child(2){background:#b8b7a2}.concept:nth-child(3){background:#d8b7a4}.concept:nth-child(4){background:#c5c7bd}.concept-mark{font:italic 2.1rem/1.05 var(--serif);letter-spacing:-.05em;z-index:1}.concept:nth-child(2) .concept-mark,.concept:nth-child(4) .concept-mark{font-style:normal;text-transform:uppercase;letter-spacing:.06em}.concept-shape{position:absolute;width:210px;height:210px;border:1px solid #19191466;border-radius:50%;right:-65px;top:70px;transition:transform .7s}.concept:hover .concept-shape{transform:scale(1.3) rotate(35deg)}.concept:nth-child(2) .concept-shape{border-radius:0;transform:rotate(35deg)}.concept:nth-child(3) .concept-shape{width:160px;height:260px;border-radius:100px 100px 0 0;right:20px;top:40px}.concept small{font-size:.65rem;letter-spacing:.14em;z-index:1}.note{font-size:.78rem;color:var(--muted);margin-top:20px}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}.step{border-top:1px solid var(--line);padding-top:18px}.step b{font-size:.7rem;color:var(--sand);letter-spacing:.12em}.step h3{font:500 1.65rem var(--serif);margin:22px 0 8px}.step p{font-size:.85rem;color:var(--muted)}
+.pricing{background:var(--olive);color:var(--paper)}.pricing .eyebrow,.pricing .section-head p{color:#e1dfd3}.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.price-card{background:var(--paper);color:var(--ink);padding:30px;position:relative}.price-card.featured{outline:1px solid #e7c5a8;transform:translateY(-9px)}.price-card h3{font:500 1.8rem var(--serif);margin:0}.price{font:500 3rem var(--serif);margin:12px 0 0}.price-card .sub{color:var(--muted);font-size:.75rem}.price-card ul{padding:18px 0 18px 18px;color:var(--muted);font-size:.83rem;min-height:175px}.price-card li{padding:4px 0}.price-card .btn{width:100%}.popular{position:absolute;right:16px;top:16px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sand)}.care{margin-top:18px;padding:24px 28px;border:1px solid #ffffff55;display:flex;justify-content:space-between;align-items:center;gap:20px}.care strong{font:500 2rem var(--serif)}.fine{font-size:.72rem;color:#e1dfd3;margin-top:18px}
+.faq-list{max-width:850px;margin-left:auto}.faq-list details{border-top:1px solid var(--line);padding:20px 0}.faq-list details:last-child{border-bottom:1px solid var(--line)}summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font:500 1.3rem var(--serif)}summary::-webkit-details-marker{display:none}summary:after{content:"+";font:1.2rem var(--sans);color:var(--sand)}details[open] summary:after{content:"−"}.faq-list details p{max-width:680px;color:var(--muted);font-size:.88rem}
+.contact{background:var(--sand);color:var(--paper);padding:95px 0}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:start}.contact h2{font:500 clamp(2.8rem,5vw,5rem)/1.05 var(--serif);letter-spacing:-.05em;margin:15px 0}.contact p{color:#f4e3d9}.form-panel{background:var(--paper);color:var(--ink);padding:28px}.form-panel h3{font:500 1.7rem var(--serif);margin:0 0 18px}.field{margin:13px 0}.field label{display:block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid var(--line);background:#fffefa;color:var(--ink);outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sand)}.field textarea{min-height:95px;resize:vertical}.form-panel .btn{width:100%;cursor:pointer}.form-hint{font-size:.7rem;color:var(--muted);margin:12px 0 0}
+.feedback{padding:75px 0;background:#eee7da}.feedback-inner{display:flex;justify-content:space-between;gap:30px;align-items:center}.feedback h2{font:500 2.2rem var(--serif);margin:0}.feedback p{color:var(--muted);font-size:.83rem;max-width:530px}.stars{display:flex;gap:7px;margin:8px 0}.stars button{background:none;border:0;padding:2px;font-size:1.5rem;color:#c8bca9;cursor:pointer}.stars button.active,.stars button:hover{color:var(--sand)}
+.footer{background:var(--ink);color:var(--paper);padding:35px 0}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer small{color:#aaa69a}.footer a{font-size:.85rem}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}.hero-copy>*{animation:rise .8s both}.hero-copy>*:nth-child(2){animation-delay:.1s}.hero-copy>*:nth-child(3){animation-delay:.2s}.hero-copy>*:nth-child(4){animation-delay:.3s}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding:70px 0}.hero-art{height:390px}.arch{height:350px}.intro-grid,.contact-grid{grid-template-columns:1fr;gap:28px}.service-grid{grid-template-columns:repeat(2,1fr)}.concept-grid{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(2,1fr)}.price-grid{grid-template-columns:1fr}.price-card.featured{transform:none}.price-card ul{min-height:0}.section-head{display:block}.section-head p{margin-top:16px}.navlinks{display:none;position:absolute;top:78px;left:0;right:0;background:var(--cream);padding:22px 24px 28px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.menu{display:block}.navlinks .btn{width:100%}}
+@media(max-width:520px){.wrap{width:min(100% - 34px,var(--max))}.hero{padding:55px 0}.hero h1{font-size:3.35rem}.hero-art{height:330px}.arch{height:300px}.orb{width:125px;height:125px}.intro,section.content{padding:72px 0}.service-grid,.concept-grid,.process-grid{grid-template-columns:1fr}.service{min-height:190px}.concept{min-height:280px}.care,.feedback-inner,.footer-row{align-items:flex-start;flex-direction:column}.contact{padding:70px 0}.form-panel{padding:21px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+.concept-dialog{width:min(680px,calc(100% - 30px));max-height:min(88vh,800px);overflow:auto;border:0;padding:0;background:var(--paper);color:var(--ink);box-shadow:0 24px 90px #19191444}
+.concept-dialog::backdrop{background:#191914aa;backdrop-filter:blur(5px)}
+.dialog-top{padding:30px 32px 22px;background:var(--cream);position:relative}
+.dialog-top .eyebrow{margin-bottom:12px}.dialog-top h3{font:500 clamp(2.2rem,6vw,3.5rem)/1.05 var(--serif);letter-spacing:-.05em;margin:0}
+.dialog-close{position:absolute;right:18px;top:18px;border:1px solid var(--line);background:var(--paper);width:38px;height:38px;border-radius:50%;font-size:1.2rem;cursor:pointer}
+.dialog-content{padding:26px 32px 32px}.dialog-content p{color:var(--muted);margin-top:0}
+.dialog-content h4{font:500 1.25rem var(--serif);margin:24px 0 10px}
+.dialog-features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0;padding:0;list-style:none}
+.dialog-features li{background:var(--cream);padding:12px 14px;font-size:.82rem}
+.dialog-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+@media(max-width:520px){.dialog-top,.dialog-content{padding:24px 20px}.dialog-features{grid-template-columns:1fr}}
+</style>
 </head>
-
 <body>
-  <div class="announcement">Independent digital studio · Taking on selected projects</div>
+<div class="announcement">Independent digital studio · Thoughtfully made</div>
+<header class="header"><div class="wrap nav"><a class="logo" href="#top">M.<span>&amp;.</span>CO</a><button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button><nav class="navlinks" aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Selected work</a><a href="#process">Approach</a><a href="#pricing">Pricing</a><a class="btn" href="#contact">Enquire ↗</a></nav></div></header>
+<main id="top">
+<section class="wrap hero"><div class="hero-copy"><div class="eyebrow">Thoughtful design. Digital presence.</div><h1 class="serif">Designed with <em>intention.</em><br>Built to make an impression.</h1><p>M.&amp;.CO is an independent digital studio creating considered, modern websites for businesses with something worth saying. Distinctive design, thoughtful details and a more confident online presence.</p><div class="actions"><a class="btn" href="#contact">Start a project ↗</a><a class="btn light" href="#process">Explore our approach ↓</a></div></div><div class="hero-art" aria-label="Abstract terracotta and olive brand artwork"><div class="orb"></div><div class="arch"></div><div class="art-stamp">The art of a<br>digital presence</div><div class="art-caption">A considered first impression.</div></div></section>
+<section class="intro"><div class="wrap intro-grid reveal"><div class="eyebrow">A different kind of digital studio</div><div><h2>Good design is more than how something looks. It's how it makes people feel.</h2><p>We bring together considered layouts, clear messaging and refined visual direction to help businesses present themselves with confidence.</p></div></div></section>
+<section class="content wrap" id="services"><div class="section-head reveal"><div><div class="eyebrow">What we do</div><h2>Our services.</h2></div><p>Everything your business needs to build a more considered digital presence.</p></div><div class="service-grid">
+<article class="service reveal"><span class="num">01 / DIGITAL</span><h3>Website design</h3><p>Modern, responsive websites designed to introduce your business and make a lasting impression.</p></article>
+<article class="service reveal"><span class="num">02 / IDENTITY</span><h3>Visual direction</h3><p>Thoughtful colours, typography and visual details that give your brand a more consistent feel.</p></article>
+<article class="service reveal"><span class="num">03 / EXPERIENCE</span><h3>Landing pages</h3><p>Focused pages designed around a clear message, a specific service or a campaign.</p></article>
+<article class="service reveal"><span class="num">04 / CONTENT</span><h3>Website copy</h3><p>Clear, considered website messaging that helps visitors understand what makes your business different.</p></article>
+<article class="service reveal"><span class="num">05 / SUPPORT</span><h3>Website care</h3><p>Ongoing help with agreed updates and routine website checks after launch.</p></article>
+<article class="service reveal"><span class="num">06 / BESPOKE</span><h3>Tailored projects</h3><p>A more individual approach for businesses looking for something beyond a standard website package.</p></article>
+</div></section>
+<section class="content work" id="work"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">The visual direction</div><h2>Selected concepts.</h2></div><p>A glimpse of the different visual directions we can explore for ambitious businesses.</p></div><div class="concept-grid">
+<button type="button" class="concept reveal" data-concept="atelier" aria-haspopup="dialog"><span class="concept-mark">Atelier<br>Maison</span><span class="concept-shape"></span><small>HOSPITALITY / CONCEPT</small><span class="explore">Explore direction ↗</span></button>
+<button type="button" class="concept reveal" data-concept="form" aria-haspopup="dialog"><span class="concept-mark">Form<br>&amp; Field</span><span class="concept-shape"></span><small>INTERIORS / CONCEPT</small><span class="explore">Explore direction ↗</span></button>
+<button type="button" class="concept reveal" data-concept="casa" aria-haspopup="dialog"><span class="concept-mark">Casa<br>Solenne</span><span class="concept-shape"></span><small>BEAUTY / CONCEPT</small><span class="explore">Explore direction ↗</span></button>
+<button type="button" class="concept reveal" data-concept="studio" aria-haspopup="dialog"><span class="concept-mark">Studio<br>Object</span><span class="concept-shape"></span><small>CREATIVE / CONCEPT</small><span class="explore">Explore direction ↗</span></button>
+</div><p class="note">These are self-initiated design concepts created to demonstrate possible creative directions. They are not client projects.</p></div></section>
 
-  <header>
-    <nav class="container">
-      <a class="logo" href="#">M.&amp;.CO</a>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#work">Selected work</a>
-        <a href="#pricing">Pricing</a>
-        <a class="nav-contact" href="#contact">Enquire ↗</a>
-      </div>
-    </nav>
-  </header>
+<dialog class="concept-dialog" id="conceptDialog" aria-labelledby="conceptTitle">
+  <div class="dialog-top">
+    <button class="dialog-close" type="button" aria-label="Close concept details">×</button>
+    <div class="eyebrow" id="conceptCategory">Website direction</div>
+    <h3 id="conceptTitle">Concept name</h3>
+  </div>
+  <div class="dialog-content">
+    <p id="conceptDescription"></p>
+    <h4>Visual style</h4><p id="conceptStyle"></p>
+    <h4>What this website could include</h4>
+    <ul class="dialog-features" id="conceptFeatures"></ul>
+    <div class="dialog-actions"><a class="btn" href="#contact" id="conceptEnquire">Create something similar ↗</a><button class="btn light" type="button" id="conceptDone">Close</button></div>
+  </div>
+</dialog>
 
-  <main>
-    <section class="hero container">
-      <div>
-        <p class="eyebrow">Thoughtful design. Digital presence.</p>
-        <h1>Designed with <em>intention.</em> Built to make an impression.</h1>
-        <p class="hero-copy">
-          M.&amp;.CO is an independent digital studio creating considered,
-          modern websites for businesses with something worth saying.
-          Distinctive design, thoughtful details and a more confident online presence.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-dark" href="#contact">Start a project ↗</a>
-          <a class="button button-outline" href="#work">Explore our approach</a>
-        </div>
-      </div>
+<section class="content wrap" id="process"><div class="section-head reveal"><div><div class="eyebrow">The approach</div><h2>Simple by design.</h2></div><p>A clear process from the first conversation to the final handover.</p></div><div class="process-grid">
+<article class="step reveal"><b>01</b><h3>Discover</h3><p>We learn about your business, your audience and what you want your website to achieve.</p></article>
+<article class="step reveal"><b>02</b><h3>Direction</h3><p>We agree on the visual direction, pages, content and project scope before building.</p></article>
+<article class="step reveal"><b>03</b><h3>Create</h3><p>Your website takes shape, with feedback and agreed revisions along the way.</p></article>
+<article class="step reveal"><b>04</b><h3>Launch</h3><p>We complete final checks and hand over the finished website and agreed access details.</p></article>
+</div></section>
+<section class="content pricing" id="pricing"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">Investment</div><h2>Considered packages.</h2></div><p>Clear starting prices. Every project is scoped around your requirements.</p></div><div class="price-grid">
+<article class="price-card reveal"><h3>Essential</h3><div class="price">£349</div><div class="sub">Starting price</div><ul><li>Up to 3 pages</li><li>Responsive design</li><li>Contact details or enquiry link</li><li>Basic search engine setup</li><li>1 revision round</li></ul><a class="btn" href="#contact" data-package="Essential">Enquire ↗</a></article>
+<article class="price-card featured reveal"><span class="popular">Most popular</span><h3>Signature</h3><div class="price">£599</div><div class="sub">Starting price</div><ul><li>Up to 5 pages</li><li>Tailored visual direction</li><li>Enquiry form integration</li><li>Responsive design</li><li>Basic search engine setup</li><li>2 revision rounds</li></ul><a class="btn" href="#contact" data-package="Signature">Enquire ↗</a></article>
+<article class="price-card reveal"><h3>Bespoke</h3><div class="price">£899+</div><div class="sub">Quoted to your requirements</div><ul><li>Up to 8 pages</li><li>More tailored layouts</li><li>Additional design details</li><li>Responsive design</li><li>Basic search engine setup</li><li>3 revision rounds</li></ul><a class="btn" href="#contact" data-package="Bespoke">Enquire ↗</a></article>
+</div><div class="care reveal"><div><div class="eyebrow">Ongoing support</div><h3 class="serif" style="font-size:1.6rem;margin:4px 0">Website care</h3><span class="sub">Agreed small updates, routine checks and ongoing support.</span></div><strong>£39 / month</strong></div><p class="fine">Prices are starting estimates. Final costs depend on the agreed scope, content, platform and requirements. Third-party subscriptions and domain costs are separate. Platform fees and larger redesigns are not included in website care.</p></div></section>
+<section class="content wrap"><div class="section-head reveal"><div><div class="eyebrow">A few questions</div><h2>Good to know.</h2></div></div><div class="faq-list reveal">
+<details><summary>How long does a website take?</summary><p>Timescales depend on the number of pages, content and project requirements. A realistic timeline will be agreed before work begins.</p></details>
+<details><summary>Can you work with my existing branding?</summary><p>Yes. We can work with your existing logo, colours and visual identity, or discuss a separate visual direction.</p></details>
+<details><summary>Do I need to provide the website content?</summary><p>You can provide your own text and images. Copywriting or additional content support can be discussed as a separate service.</p></details>
+<details><summary>Are the portfolio projects real clients?</summary><p>The projects shown are self-initiated concepts demonstrating creative direction. They are not presented as commissioned client work.</p></details>
+<details><summary>Are hosting and domain names included?</summary><p>Platform subscriptions and domain registration are separate unless specifically included in an agreed quote.</p></details>
+</div></section>
+<section class="contact" id="contact"><div class="wrap contact-grid"><div class="reveal"><div class="eyebrow" style="color:#f4dfd2">Your next chapter starts here</div><h2>Let's create something worth remembering.</h2><p>Have a project in mind? Tell us a little about your business and what you are looking to create.</p><p><strong>Prefer email?</strong><br><a href="mailto:mandco28@gmail.com">mandco28@gmail.com ↗</a></p></div>
+<div class="form-panel reveal"><h3>Build your project enquiry.</h3><form id="enquiry"><div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required placeholder="Name"></div><div class="field"><label for="business">Business name</label><input id="business" name="business" placeholder="Your business"></div><div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div><div class="field"><label for="service">What are you looking for?</label><select id="service" name="service"><option>Website design</option><option>Landing page</option><option>Visual direction</option><option>Website copy</option><option>Website care</option><option>Tailored project</option></select></div><div class="field"><label for="budget">Indicative budget</label><select id="budget" name="budget"><option>Not sure yet</option><option>Under £350</option><option>£350–£600</option><option>£600–£900</option><option>£900+</option></select></div><div class="field"><label for="details">Tell us about your project</label><textarea id="details" name="details" placeholder="A little about your business, goals and ideal timeline..."></textarea></div><button class="btn" type="submit">Prepare enquiry email ↗</button><p class="form-hint">This opens your email app with your details filled in. Nothing is stored or sent automatically.</p></form></div></div></section>
+<section class="feedback"><div class="wrap feedback-inner"><div><div class="eyebrow">A note to the studio</div><h2>Share some feedback.</h2><p>Have you explored the site or spoken with the studio? Send a private note. Feedback is emailed to us and is not published as a testimonial.</p></div><form id="feedbackForm" class="form-panel" style="width:min(100%,440px)"><label class="eyebrow" style="color:var(--olive)">Your rating</label><div class="stars" role="group" aria-label="Choose a star rating"><button type="button" aria-label="1 star" data-star="1">★</button><button type="button" aria-label="2 stars" data-star="2">★</button><button type="button" aria-label="3 stars" data-star="3">★</button><button type="button" aria-label="4 stars" data-star="4">★</button><button type="button" aria-label="5 stars" data-star="5">★</button></div><div class="field"><label for="feedbackText">Your feedback</label><textarea id="feedbackText" required placeholder="Write your feedback..."></textarea></div><button class="btn" type="submit">Email feedback ↗</button><p class="form-hint">This opens an email draft; it does not post a public review.</p></form></div></section>
+</main>
+<footer class="footer"><div class="wrap footer-row"><a class="logo" href="#top">M.<span>&amp;.</span>CO</a><small>Independent digital studio · Thoughtfully made.<br>© 2026 M.&amp;.CO</small><a href="mailto:mandco28@gmail.com">mandco28@gmail.com ↗</a></div></footer>
+<script>
+const menu=document.querySelector('.menu'),nav=document.querySelector('.navlinks');
 
-      <div class="hero-art">
-        <div class="art-word">
-          M.&amp;.CO
-          <small>THE ART OF A DIGITAL PRESENCE</small>
-        </div>
-      </div>
-    </section>
+const conceptDialog=document.querySelector('#conceptDialog');
+const conceptData={
+  atelier:{
+    category:'01 / Hospitality · Elegant and minimal',
+    title:'Atelier Maison',
+    description:'A calm, minimal website direction for a boutique hotel, restaurant, café or considered hospitality brand. The experience is built around atmosphere, beautiful imagery and making essential information easy to find.',
+    style:'Warm neutrals, generous whitespace, refined serif typography, subtle transitions and large editorial photography. Minimal without feeling empty.',
+    features:['Atmospheric full-screen hero','Rooms, menu or service pages','Image-led gallery','About the venue and its story','Menus, opening times or key information','Clear booking or enquiry links']
+  },
+  form:{
+    category:'02 / Interiors · Modern and architectural',
+    title:'Form & Field',
+    description:'A modern, structured direction for interior designers, architects, property studios or premium home brands. It puts projects and visual work first while keeping the navigation simple.',
+    style:'Muted olive and stone tones, clean typography, strong grids, precise spacing and architectural layouts. A polished, contemporary feel.',
+    features:['Project portfolio and case studies','Before-and-after or image galleries','Services and design approach','Studio profile and team section','Project enquiry form','Optional journal or insights page']
+  },
+  casa:{
+    category:'03 / Beauty · Luxury and editorial',
+    title:'Casa Solenne',
+    description:'A luxurious, polished website direction for beauty, skincare, wellness or personal-care businesses. It gives the brand a premium feel and guides visitors towards treatments, products or appointments.',
+    style:'Soft blush and warm cream, elegant typography, refined details, editorial photography and smooth, understated animation.',
+    features:['Luxury brand-led homepage','Treatments or product listings','Pricing and service details','Meet the team or brand story','Testimonials section when genuine reviews exist','Appointment or contact links']
+  },
+  studio:{
+    category:'04 / Creative · Bold and expressive',
+    title:'Studio Object',
+    description:'A distinctive, creative direction for photographers, makers, creative studios and independent brands. It gives the work room to stand out and makes the business feel memorable.',
+    style:'Bold typography, confident layouts, graphic shapes, contrasting neutral tones and playful motion used with purpose.',
+    features:['Statement introduction and brand message','Visual work or project portfolio','Individual project pages','Services and capabilities','About the creator or studio','Collaboration and project enquiry form']
+  }
+};
+function openConcept(key){
+  const item=conceptData[key]; if(!item)return;
+  document.querySelector('#conceptCategory').textContent=item.category;
+  document.querySelector('#conceptTitle').textContent=item.title;
+  document.querySelector('#conceptDescription').textContent=item.description;
+  document.querySelector('#conceptStyle').textContent=item.style;
+  const list=document.querySelector('#conceptFeatures');list.replaceChildren();
+  item.features.forEach(feature=>{const li=document.createElement('li');li.textContent=feature;list.appendChild(li)});
+  conceptDialog.showModal();
+}
+document.querySelectorAll('[data-concept]').forEach(card=>card.addEventListener('click',()=>openConcept(card.dataset.concept)));
+document.querySelector('.dialog-close').addEventListener('click',()=>conceptDialog.close());
+document.querySelector('#conceptDone').addEventListener('click',()=>conceptDialog.close());
+conceptDialog.addEventListener('click',e=>{if(e.target===conceptDialog)conceptDialog.close()});
+document.querySelector('#conceptEnquire').addEventListener('click',()=>conceptDialog.close());
 
-    <div class="intro">
-      <div class="container">
-        <p class="eyebrow">A different kind of digital studio</p>
-        <h2>Good design is more than how something looks. It's how it makes people feel.</h2>
-        <p>
-          We bring together considered layouts, clear messaging and refined
-          visual direction to help businesses present themselves with confidence.
-        </p>
-      </div>
-    </div>
-
-    <section id="services" class="container">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">What we do</p>
-          <h2>Our services.</h2>
-        </div>
-        <p>Everything your business needs to build a more considered digital presence.</p>
-      </div>
-
-      <div class="services-grid">
-        <article class="service">
-          <span class="service-number">01 / DIGITAL</span>
-          <h3>Website design</h3>
-          <p>Modern, responsive websites designed to introduce your business and make a lasting impression.</p>
-        </article>
-
-        <article class="service">
-          <span class="service-number">02 / IDENTITY</span>
-          <h3>Visual direction</h3>
-          <p>Thoughtful colours, typography and visual details that give your brand a more consistent feel.</p>
-        </article>
-
-        <article class="service">
-          <span class="service-number">03 / EXPERIENCE</span>
-          <h3>Landing pages</h3>
-          <p>Focused pages designed around a clear message, a specific service or a campaign.</p>
-        </article>
-
-        <article class="service">
-          <span class="service-number">04 / CONTENT</span>
-          <h3>Website copy</h3>
-          <p>Clear, considered website messaging that helps visitors understand what makes your business different.</p>
-        </article>
-
-        <article class="service">
-          <span class="service-number">05 / SUPPORT</span>
-          <h3>Website care</h3>
-          <p>Ongoing help with agreed updates and routine website checks after launch.</p>
-        </article>
-
-        <article class="service">
-          <span class="service-number">06 / BESPOKE</span>
-          <h3>Tailored projects</h3>
-          <p>A more individual approach for businesses looking for something beyond a standard website package.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="work" class="work">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">The visual direction</p>
-            <h2>Selected concepts.</h2>
-          </div>
-          <p>A glimpse of the different visual directions we can explore for ambitious businesses.</p>
-        </div>
-
-        <div class="work-grid">
-          <article class="project">
-            <div class="project-art one"><span>Atelier<br>Maison</span></div>
-            <div class="project-info">
-              <h3>Atelier Maison</h3>
-              <p>HOSPITALITY / CONCEPT</p>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project-art two"><span>FORM<br>&amp; FIELD</span></div>
-            <div class="project-info">
-              <h3>Form &amp; Field</h3>
-              <p>INTERIORS / CONCEPT</p>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project-art three"><span>Casa<br>Solenne</span></div>
-            <div class="project-info">
-              <h3>Casa Solenne</h3>
-              <p>BEAUTY / CONCEPT</p>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project-art four"><span>STUDIO<br>OBJECT</span></div>
-            <div class="project-info">
-              <h3>Studio Object</h3>
-              <p>CREATIVE / CONCEPT</p>
-            </div>
-          </article>
-        </div>
-
-        <p class="concept-note">These are self-initiated design concepts created to demonstrate possible creative directions. They are not client projects.</p>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">The approach</p>
-          <h2>Simple by design.</h2>
-        </div>
-        <p>A clear process from the first conversation to the final handover.</p>
-      </div>
-
-      <div class="process-grid">
-        <article class="process-item">
-          <span>01</span>
-          <h3>Discover</h3>
-          <p>We learn about your business, your audience and what you want your website to achieve.</p>
-        </article>
-
-        <article class="process-item">
-          <span>02</span>
-          <h3>Direction</h3>
-          <p>We agree on the visual direction, pages, content and project scope before building.</p>
-        </article>
-
-        <article class="process-item">
-          <span>03</span>
-          <h3>Create</h3>
-          <p>Your website takes shape, with feedback and agreed revisions along the way.</p>
-        </article>
-
-        <article class="process-item">
-          <span>04</span>
-          <h3>Launch</h3>
-          <p>We complete final checks and hand over the finished website and agreed access details.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Investment</p>
-            <h2>Considered packages.</h2>
-          </div>
-          <p>Clear starting prices. Every project is scoped around your requirements.</p>
-        </div>
-
-        <div class="pricing-grid">
-          <article class="price-card">
-            <h3>Essential</h3>
-            <p class="price">£349</p>
-            <p class="price-note">Starting price</p>
-            <ul>
-              <li>Up to 3 pages</li>
-              <li>Responsive design</li>
-              <li>Contact details or enquiry link</li>
-              <li>Basic search engine setup</li>
-              <li>1 revision round</li>
-            </ul>
-            <a class="button button-dark" href="mailto:mandco28@gmail.com?subject=Essential%20Website%20Enquiry">Enquire ↗</a>
-          </article>
-
-          <article class="price-card featured">
-            <h3>Signature</h3>
-            <p class="price">£599</p>
-            <p class="price-note">Starting price · Most popular</p>
-            <ul>
-              <li>Up to 5 pages</li>
-              <li>Tailored visual direction</li>
-              <li>Enquiry form integration</li>
-              <li>Responsive design</li>
-              <li>Basic search engine setup</li>
-              <li>2 revision rounds</li>
-            </ul>
-            <a class="button button-dark" href="mailto:mandco28@gmail.com?subject=Signature%20Website%20Enquiry">Enquire ↗</a>
-          </article>
-
-          <article class="price-card">
-            <h3>Bespoke</h3>
-            <p class="price">£899+</p>
-            <p class="price-note">Quoted to your requirements</p>
-            <ul>
-              <li>Up to 8 pages</li>
-              <li>More tailored layouts</li>
-              <li>Additional design details</li>
-              <li>Responsive design</li>
-              <li>Basic search engine setup</li>
-              <li>3 revision rounds</li>
-            </ul>
-            <a class="button button-dark" href="mailto:mandco28@gmail.com?subject=Bespoke%20Website%20Enquiry">Enquire ↗</a>
-          </article>
-        </div>
-
-        <div class="care">
-          <div>
-            <h3>Website care</h3>
-            <p>Agreed small updates, routine checks and ongoing support. Platform fees and larger redesigns are separate.</p>
-          </div>
-          <strong>£39 / month</strong>
-        </div>
-
-        <p class="concept-note" style="color:#e0dfd3;">Prices are starting estimates. Final costs depend on the agreed scope, content, platform and requirements. Third-party subscriptions and domain costs are separate.</p>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">A few questions</p>
-          <h2>Good to know.</h2>
-        </div>
-      </div>
-
-      <div class="faq-list">
-        <details>
-          <summary>How long does a website take?</summary>
-          <p>Timescales depend on the number of pages, content and project requirements. A realistic timeline will be agreed before work begins.</p>
-        </details>
-
-        <details>
-          <summary>Can you work with my existing branding?</summary>
-          <p>Yes. We can work with your existing logo, colours and visual identity, or discuss a separate visual direction.</p>
-        </details>
-
-        <details>
-          <summary>Do I need to provide the website content?</summary>
-          <p>You can provide your own text and images. Copywriting or additional content support can be discussed as a separate service.</p>
-        </details>
-
-        <details>
-          <summary>Are the portfolio projects real clients?</summary>
-          <p>The projects shown are self-initiated concepts demonstrating creative direction. They are not presented as commissioned client work.</p>
-        </details>
-
-        <details>
-          <summary>Are hosting and domain names included?</summary>
-          <p>Platform subscriptions and domain registration are separate unless specifically included in an agreed quote.</p>
-        </details>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="container">
-        <p class="eyebrow">Your next chapter starts here</p>
-        <h2>Let's create something worth remembering.</h2>
-        <p>Have a project in mind? Tell us a little about your business and what you are looking to create.</p>
-        <a class="button button-dark" href="mailto:mandco28@gmail.com?subject=New%20M.%26.CO%20Project%20Enquiry">Start a conversation ↗</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <a class="logo" href="#">M.&amp;.CO</a>
-      <p>Independent digital studio · Thoughtfully made.</p>
-      <a href="mailto:mandco28@gmail.com">mandco28@gmail.com</a>
-      <p>© 2026 M.&amp;.CO</p>
-    </div>
-  </footer>
-</body>
-</html>
-
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('[data-package]').forEach(a=>a.addEventListener('click',()=>{document.querySelector('#service').value='Website design';document.querySelector('#details').value='I am interested in the '+a.dataset.package+' package. '}));
+document.querySelector('#enquiry').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.currentTarget);const body=[`Name: ${f.get('name')}`,`Business: ${f.get('business')||'Not provided'}`,`Reply email: ${f.get('email')}`,`Service: ${f.get('service')}`,`Indicative budget: ${f.get('budget')}`,`Project details: ${f.get('details')||'Not provided'}`].join('\n\n');location.href='mailto:mandco28@gmail.com?subject='+encodeURIComponent('New M.&.CO project enquiry')+'&body='+encodeURIComponent(body)});
+let rating=0;const starButtons=[...document.querySelectorAll('[data-star]')];function paintStars(){starButtons.forEach(b=>{const on=Number(b.dataset.star)<=rating;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(Number(b.dataset.star)===rating))})}starButtons.forEach(b=>b.addEventListener('click',()=>{rating=Number(b.dataset.star);paintStars()}));
+document.querySelector('#feedbackForm').addEventListener('submit',e=>{e.preventDefault();if(!rating){alert('Please choose a star rating first.');return}const note=document.querySelector('#feedbackText').value;location.href='mailto:mandco28@gmail.com?subject='+encodeURIComponent('Private M.&.CO feedback')+'&body='+encodeURIComponent('Rating: '+rating+'/5\n\nFeedback:\n'+note+'\n\nPlease note: this is private feedback, not a public testimonial.')});
+</script>
+</body></html>
